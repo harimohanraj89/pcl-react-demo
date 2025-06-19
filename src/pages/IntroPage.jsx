@@ -1,28 +1,10 @@
 import { useState } from 'react';
-import './App.css';
 
-function Pokemon() {
-  return (
-    <>
-      <h3>My favorite pokemon</h3>
-      <ul>
-        <li>Machamp</li>
-        <li>Magmar</li>
-        <li>Gengar</li>
-      </ul>
-    </>
-  );
-}
+import Pokemon from '../components/intro/Pokemon';
+import ColorfulText from '../components/intro/ColorfulText';
+import MarioCharacter from '../components/intro/MarioCharacter';
 
-function ColorfulText(props) {
-  return (
-    <p style={{ color: props.color }}>
-      <strong>Look at this colorful text!</strong>
-    </p>
-  );
-}
-
-function App() {
+function IntroPage() {
   const number = 17;
 
   const characters = [
@@ -79,16 +61,11 @@ function App() {
       <ColorfulText color="blue" />
 
       {/* Lists */}
-      {characters.map((character) => {
-        return (
-          <div>
-            <h3>{character.name}</h3>
-            <img src={character.image} alt={character.name} />
-          </div>
-        );
-      })}
+      {characters.map((character) => (
+        <MarioCharacter name={character.name} image={character.image} />
+      ))}
     </>
   );
 }
 
-export default App;
+export default IntroPage;
